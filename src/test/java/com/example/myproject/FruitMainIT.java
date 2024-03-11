@@ -1,8 +1,8 @@
-package org.example.myproject;
+package com.example.myproject;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-public class ExampleResourceIT extends ExampleResourceTest {
+class FruitMainIT extends FruitMainTest {
     // Execute the same tests but in packaged mode.
 }
