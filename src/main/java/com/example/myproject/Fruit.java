@@ -1,7 +1,7 @@
 package com.example.myproject;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "known_fruits")

@@ -1,6 +1,6 @@
 package com.example.myproject;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;

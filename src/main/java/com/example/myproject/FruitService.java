@@ -2,11 +2,11 @@ package com.example.myproject;
 
 
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import javax.ws.rs.WebApplicationException;
+import  jakarta.enterprise.context.ApplicationScoped;
+import  jakarta.inject.Inject;
+import  jakarta.persistence.EntityManager;
+import  jakarta.transaction.Transactional;
+import  jakarta.ws.rs.WebApplicationException;
 import java.util.List;
 
 @ApplicationScoped
@@ -38,7 +38,7 @@ public class FruitService {
     @Transactional
     public Fruit add(Fruit project) {
         if (project.getId() == null) {
-            String info  = "Id was invalidly set on request.";
+            String info = "Id was invalidly set on request.";
 
             throw new WebApplicationException(info, 422);
         }
