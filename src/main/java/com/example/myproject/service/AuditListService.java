@@ -54,9 +54,6 @@ public class AuditListService {
     }
     //单个id查询
     public AuditList getById(Long id){  return auditListMapper.getOne(id);}
-    //添加数据
-    public AuditList Add(AuditList auditList) {
-        return auditListMapper.saveAndFlush(auditList);
-    }
+    
     
 }

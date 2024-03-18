@@ -8,9 +8,7 @@ import io.quarkus.runtime.Quarkus;
 
 @QuarkusMain
 public class FruitMain implements QuarkusApplication {
-
-    @Inject
-    FruitResource resource;
+    
 
     @Override
     public int run(String... args) {

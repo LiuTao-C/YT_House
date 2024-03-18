@@ -6,6 +6,9 @@ import com.example.myproject.entity.CheckList;
 import com.example.myproject.mapper.CheckListMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -25,8 +28,10 @@ public class CheckListService {
      * 查詢全部
      * @return
      */
-    public List<CheckList> selectList() {
-        return checkListMapper.findAll();
+    public List<CheckList> selectList(Integer pages,Integer size) {
+        Pageable page = PageRequest.of(pages,size);
+        Page<CheckList> listPage = checkListMapper.findAll(page);
+        return listPage.getContent();
     }
     
     /**

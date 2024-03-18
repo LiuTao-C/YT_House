@@ -72,7 +72,12 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+            <version>1.11.1.Final</version>
+        </dependency>
+        <!--        <dependency>-->
 <!--            <groupId>org.projectlombok</groupId>-->
 <!--            <artifactId>lombok</artifactId>-->
 <!--            <version>1.18.6</version>-->

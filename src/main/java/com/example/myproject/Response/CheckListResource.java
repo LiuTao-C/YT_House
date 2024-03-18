@@ -1,11 +1,14 @@
-package com.example.myproject.resource;
+package com.example.myproject.Response;
 
 import com.example.myproject.entity.CheckList;
+import com.example.myproject.pages.ResponseResult;
+import com.example.myproject.pages.ResponsePage;
 import com.example.myproject.service.CheckListService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+
 
 import java.util.List;
 
@@ -30,39 +33,41 @@ public class CheckListResource {
     @GET //RestFul风格： @GET 查询 @DELETE 删除 @UPDATE 更新 @POST 新增
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<CheckList> list(@QueryParam("page")Integer page, @QueryParam("limit") Integer limit) {
-        // 这里可以将参数传递到下一层做分页
-        System.out.println("page=============" + page);
-        System.out.println("limit=============" + limit);
-        return checkListService.selectList();
+    public ResponsePage<CheckList> list(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
+        checkListService.selectList(page,size);
+        return ResponsePage;
     }
+    
     
     // TODO 把service层做个业务封装到Controlller层， 参考上面的写法
     //查询单个
     @GET
     @Path("{id}")
-    public CheckList getById(@PathParam("id") Long id){
-        return  checkListService.getById(id);
+    public ResponseResult<CheckList> getById(@PathParam("id") Long id){
+        checkListService.getById(id);
+        return ResponseResult.success(id);
     }
     //删除
     @DELETE
     @Path("{id}")
-    public void delete(@PathParam("id") Long id){
+    public ResponseResult delete(@PathParam("id") Long id){
         checkListService.deleteById(id);
-        System.out.println("删除 "+id);
+        return ResponseResult.success(id);
+
     }
     //更新
     @PUT
     @Path("id")
-    public CheckList updateById(CheckList checkList){
-        return checkListService.updateById(checkList);
+    public ResponseResult<CheckListService> updateById(CheckList checkList){
+         
+         return ResponseResult.success(checkListService.updateById(checkList));
     }
     
     //新增
     @POST
-    public void Add(CheckList checkList){
-        checkListService.Add(checkList);
-        System.out.println("增加"+checkList);
+    public ResponseResult Add(CheckList checkList){
+        checkListService.updateById(checkList);
+        return ResponseResult.success(checkList);
     }
     
 }
