@@ -29,7 +29,8 @@ public class CheckListService {
      * @return
      */
     public List<CheckList> selectList(Integer pages,Integer size) {
-        Pageable page = PageRequest.of(pages,size);
+        Pageable page = PageRequest.of(pages,size); // LIMIT 10,20
+        // sort delelte_flag != 1
         Page<CheckList> listPage = checkListMapper.findAll(page);
         return listPage.getContent();
     }
@@ -39,6 +40,9 @@ public class CheckListService {
      * @param id id
      */
     public void deleteById(Long id) {
+        // delete from a where id = 1
+        // exepetion throw new RuntimeExe
+        // delete from checklist where id = 1
         checkListMapper.deleteById(id);
     }
     

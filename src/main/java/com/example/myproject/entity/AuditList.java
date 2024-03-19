@@ -34,6 +34,8 @@ public class AuditList implements Serializable {
     @Column(name = "schedule_start_date")
     private String scheduleStartDate;
     
+    // private CheckList checklist;
+    
     // TODO setter getter 把Setter和Getter补充完， 可以用lombok
     
     

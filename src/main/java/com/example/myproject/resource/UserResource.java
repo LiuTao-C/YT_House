@@ -1,6 +1,7 @@
-package com.example.myproject.Response;
+package com.example.myproject.resource;
 
 import com.example.myproject.entity.User;
+import com.example.myproject.response.ResponseResult;
 import com.example.myproject.service.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -36,32 +37,45 @@ public class UserResource {
         System.out.println("limit=============" + limit);
         return userService.selectList();
     }
+    
     // TODO 把service层做个业务封装到Controlller层， 参考上面的写法
     //查询单个
+    
     @GET
     @Path("{id}")
-    public User getById(@PathParam("id") Long id){
-        return  userService.getById(id);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult getById(@PathParam("id") Long id){
+         User result =  userService.getById(id);
+         return ResponseResult.success(result);
     }
+    
     //删除
     @DELETE
     @Path("{id}")
-    public void delete(@PathParam("id") Long id){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult delete(@PathParam("id") Long id){
         userService.deleteById(id);
-        System.out.println("删除 "+id);
+        return  ResponseResult.success(200);
     }
     //更新
     @PUT
     @Path("id")
-    public User updateById(User user){
-        return userService.updateById(user);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult updateById(User user){
+        User result = userService.updateById(user);
+        return ResponseResult.success(result);
     }
     
     //新增
     @POST
-    public void Add(User user){
-        userService.Add(user);
-        System.out.println("增加"+user);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult editByNameAndId(User user){
+        User result = userService.Add(user);
+        return  ResponseResult.success(result);
     }
     
 }

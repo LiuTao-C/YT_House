@@ -34,6 +34,8 @@ public class CheckList implements Serializable {
     @Column(name = "check_list_id")
     private Integer checkListId;
     
+    private Integer isDel = 0; // 1
+    
     public Long getId() {
         return id;
     }
