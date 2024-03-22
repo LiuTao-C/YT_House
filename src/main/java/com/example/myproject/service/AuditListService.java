@@ -4,6 +4,9 @@ import com.example.myproject.entity.AuditList;
 import com.example.myproject.mapper.AuditListMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -23,8 +26,9 @@ public class AuditListService {
      * 查詢全部
      * @return
      */
-    public List<AuditList> selectList() {
-        return auditListMapper.findAll();
+    public Page<AuditList> selectList(int page ,int size) {
+        Pageable pageable = PageRequest.of(page - 1,size );
+        return auditListMapper.findAll(pageable);
     }
     
     /**

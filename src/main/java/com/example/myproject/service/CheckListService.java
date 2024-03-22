@@ -28,11 +28,10 @@ public class CheckListService {
      * 查詢全部
      * @return
      */
-    public List<CheckList> selectList(Integer pages,Integer size) {
-        Pageable page = PageRequest.of(pages,size); // LIMIT 10,20
+    public Page<CheckList> selectList(Integer page,Integer size) {
+        Pageable pageable = PageRequest.of(page - 1,size); // LIMIT 10,20
         // sort delelte_flag != 1
-        Page<CheckList> listPage = checkListMapper.findAll(page);
-        return listPage.getContent();
+        return checkListMapper.findAll(pageable);
     }
     
     /**
@@ -66,7 +65,7 @@ public class CheckListService {
     //单个id查询
     public CheckList getById(Long id){  return checkListMapper.getOne(id);}
     
-    public CheckList Add(CheckList checkList) {return checkListMapper.saveAndFlush(checkList);}
+    public CheckList add(CheckList checkList) {return checkListMapper.saveAndFlush(checkList);}
     
 }
 

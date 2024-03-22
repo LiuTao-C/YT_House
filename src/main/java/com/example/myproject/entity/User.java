@@ -1,15 +1,18 @@
 package com.example.myproject.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.io.Serializable;
 //import lombok.Getter;
 //import lombok.Setter;
-
+@Data
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
@@ -21,19 +24,15 @@ public class User implements Serializable {
     @Column
     private String role;
     
-
-    
     @Column(name = "company_id")
     private Integer companyId;
-    
-
     
     @Column(name = "department_id")
     private Integer departmentId;
     
     // TODO setter getter 把Setter和Getter补充完， 可以用lombok
     
-    
+/*
     public Long getId() {
         return id;
     }
@@ -57,6 +56,6 @@ public class User implements Serializable {
     
     public Integer getCompanyId(){ return companyId;}
     public void setCompanyId(Integer companyId){ this.companyId = companyId;}
-    
+    */
 }
 

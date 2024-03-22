@@ -8,6 +8,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -32,42 +34,45 @@ public class AuditListResource {
     @GET //RestFul风格： @GET 查询 @DELETE 删除 @UPDATE 更新 @POST 新增
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponsePage<List> list(@QueryParam("page")Integer page, @QueryParam("limit") Integer limit) {
+    public ResponsePage<AuditList> page(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
         // 这里可以将参数传递到下一层做分页
 //        System.out.println("page=============" + page);
 //        System.out.println("limit=============" + limit);
-        List result = auditListService.selectList();
-        ResponsePage responsePage = new ResponsePage();
-        responsePage.setData(result);
-        return responsePage;
+        Page<AuditList> auditlists = auditListService.selectList(page,size);
+        return ResponsePage.success(auditlists);
     }
     
     // TODO 把service层做个业务封装到Controlller层， 参考上面的写法
     //查询单个
     @GET
     @Path("{id}")
-    public ResponseResult getById(@PathParam("id") Long id){
+    public ResponseResult<AuditList> getById(@PathParam("id") Long id){
         AuditList result = auditListService.getById(id);
         return  ResponseResult.success(result);
     }
     //删除
     @DELETE
     @Path("{id}")
-    public ResponseResult delete(@PathParam("id") Long id){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult<String> delete(@PathParam("id") Long id){
         auditListService.deleteById(id);
-        return ResponseResult.success(200);
+        return ResponseResult.success();
     }
     //更新
     @PUT
-    @Path("id")
-    public ResponseResult updateById(AuditList auditList){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult<AuditList> updateById(AuditList auditList){
         AuditList result =  auditListService.updateById(auditList);
         return ResponseResult.success(result);
     }
     
     //新增
     @POST
-    public ResponseResult Add(AuditList auditList){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ResponseResult<AuditList> Add(AuditList auditList){
         AuditList result = auditListService.updateById(auditList);
         return ResponseResult.success(result);
     }

@@ -1,14 +1,13 @@
 package com.example.myproject.service;
 
 
-
 import com.example.myproject.entity.User;
-
 import com.example.myproject.mapper.UserMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 /**
  * 这里是做业务层
@@ -26,8 +25,9 @@ public class UserService {
      * 查詢全部
      * @return
      */
-    public List<User> selectList() {
-        return userMapper.findAll();
+    public Page<User> selectList(int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return userMapper.findAll(pageable);
     }
     
     /**
@@ -58,9 +58,8 @@ public class UserService {
     //单个id查询
     public User getById(Long id){  return userMapper.getOne(id);}
     
-    public User Add(User user) {
+    public User add(User user) {
         return userMapper.saveAndFlush(user);
     }
     
 }
-

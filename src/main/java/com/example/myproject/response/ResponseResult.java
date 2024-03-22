@@ -42,15 +42,15 @@ public class ResponseResult<T> implements Serializable {
      *
      * @return
      */
-    public static ResponseResult success() {
-        return new ResponseResult(ServerResponseEnum.SUCCESS.getCode());
+    public static <T> ResponseResult<T> success() {
+        return new ResponseResult<>(ServerResponseEnum.SUCCESS.getCode());
     }
     
-    public static ResponseResult success(String message) {
-        return new ResponseResult(ServerResponseEnum.SUCCESS.getCode(), message);
+    public static <T> ResponseResult<T> success(String message) {
+        return new ResponseResult<>(ServerResponseEnum.SUCCESS.getCode(), message);
     }
     
-    public static <T> ResponseResult success(T data) {
+    public static <T> ResponseResult<T> success(T data) {
         return new ResponseResult<>(ServerResponseEnum.SUCCESS.getCode(), data);
     }
     
@@ -59,15 +59,15 @@ public class ResponseResult<T> implements Serializable {
      *
      * @return
      */
-    public static ResponseResult fail() {
-        return new ResponseResult(ServerResponseEnum.FAIL.getCode());
+    public static <T> ResponseResult<T> fail() {
+        return new ResponseResult<>(ServerResponseEnum.FAIL.getCode());
     }
     
-    public static ResponseResult fail(String message) {
-        return new ResponseResult(ServerResponseEnum.FAIL.getCode(), message);
+    public static <T> ResponseResult<T> fail(String message) {
+        return new ResponseResult<>(ServerResponseEnum.FAIL.getCode(), message);
     }
     
-    public static <T> ResponseResult fail(T data) {
+    public static <T> ResponseResult<T> fail(T data) {
         return new ResponseResult<>(ServerResponseEnum.FAIL.getCode(), data);
     }
     
@@ -76,15 +76,15 @@ public class ResponseResult<T> implements Serializable {
      *
      * @return
      */
-    public static ResponseResult notFound() {
-        return new ResponseResult(ServerResponseEnum.NOTFOUND.getCode());
+    public static <T> ResponseResult<T> notFound() {
+        return new ResponseResult<>(ServerResponseEnum.NOTFOUND.getCode());
     }
     
-    public static ResponseResult notFound(String message) {
-        return new ResponseResult(ServerResponseEnum.NOTFOUND.getCode(), message);
+    public static <T> ResponseResult<T> notFound(String message) {
+        return new ResponseResult<>(ServerResponseEnum.NOTFOUND.getCode(), message);
     }
     
-    public static <T> ResponseResult notFound(T data) {
+    public static <T> ResponseResult<T> notFound(T data) {
         return new ResponseResult<>(ServerResponseEnum.NOTFOUND.getCode(), data);
     }
     
@@ -93,15 +93,15 @@ public class ResponseResult<T> implements Serializable {
      *
      * @return
      */
-    public static ResponseResult error() {
-        return new ResponseResult(ServerResponseEnum.ERROR.getCode());
+    public static <T> ResponseResult<T> error() {
+        return new ResponseResult<>(ServerResponseEnum.ERROR.getCode());
     }
     
-    public static ResponseResult error(String message) {
-        return new ResponseResult(ServerResponseEnum.ERROR.getCode(), message);
+    public static <T> ResponseResult<T> error(String message) {
+        return new ResponseResult<>(ServerResponseEnum.ERROR.getCode(), message);
     }
     
-    public static <T> ResponseResult error(T data) {
+    public static <T> ResponseResult<T> error(T data) {
         return new ResponseResult<>(ServerResponseEnum.ERROR.getCode(), data);
     }
     
@@ -110,12 +110,12 @@ public class ResponseResult<T> implements Serializable {
      *
      * @return
      */
-    public static ResponseResult unauthorized() {
-        return new ResponseResult(ServerResponseEnum.UNAUTHORIZED.getCode());
+    public static <T> ResponseResult<T>  unauthorized() {
+        return new ResponseResult<>(ServerResponseEnum.UNAUTHORIZED.getCode());
     }
     
-    public static ResponseResult unauthorized(String message) {
-        return new ResponseResult(ServerResponseEnum.UNAUTHORIZED.getCode(), message);
+    public static <T> ResponseResult<T>  unauthorized(String message) {
+        return new ResponseResult<>(ServerResponseEnum.UNAUTHORIZED.getCode(), message);
     }
     
     enum ServerResponseEnum {

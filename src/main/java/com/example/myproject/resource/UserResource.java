@@ -1,14 +1,14 @@
 package com.example.myproject.resource;
 
 import com.example.myproject.entity.User;
+import com.example.myproject.response.ResponsePage;
 import com.example.myproject.response.ResponseResult;
 import com.example.myproject.service.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 /**
  * 专注数据交互，直接对Path负责，这里不需要很负责的业务逻辑
@@ -25,29 +25,26 @@ public class UserResource {
     
     /**
      * 查询所有数据列表 - 分页
-     * @return
+     * @return s
      */
-    @Path("list")
+    @Path("page")
     @GET //RestFul风格： @GET 查询 @DELETE 删除 @UPDATE 更新 @POST 新增
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<User> list(@QueryParam("page")Integer page, @QueryParam("limit") Integer limit) {
+    public ResponsePage<User> page(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
         // 这里可以将参数传递到下一层做分页
-        System.out.println("page=============" + page);
-        System.out.println("limit=============" + limit);
-        return userService.selectList();
+        Page<User> users = userService.selectList(page, size);
+        return ResponsePage.success(users);
     }
     
-    // TODO 把service层做个业务封装到Controlller层， 参考上面的写法
     //查询单个
-    
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult getById(@PathParam("id") Long id){
-         User result =  userService.getById(id);
-         return ResponseResult.success(result);
+    public ResponseResult<User> getById(@PathParam("id") Long id){
+        User result =  userService.getById(id);
+        return ResponseResult.success(result);
     }
     
     //删除
@@ -55,16 +52,15 @@ public class UserResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult delete(@PathParam("id") Long id){
+    public ResponseResult<String> deleteById(@PathParam("id") Long id){
         userService.deleteById(id);
-        return  ResponseResult.success(200);
+        return ResponseResult.success();
     }
     //更新
     @PUT
-    @Path("id")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult updateById(User user){
+    public ResponseResult<User> updateById(User user){
         User result = userService.updateById(user);
         return ResponseResult.success(result);
     }
@@ -73,10 +69,9 @@ public class UserResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult editByNameAndId(User user){
-        User result = userService.Add(user);
+    public ResponseResult<User> add(User user){
+        User result = userService.add(user);
         return  ResponseResult.success(result);
     }
     
 }
-

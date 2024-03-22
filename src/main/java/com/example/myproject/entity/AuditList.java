@@ -3,14 +3,14 @@ package com.example.myproject.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-//import lombok.Getter;
-//import lombok.Setter;
-
+import lombok.Data;
+@Data
 @Entity
 @Table(name = "auditlist")
 public class AuditList implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
@@ -34,11 +34,28 @@ public class AuditList implements Serializable {
     @Column(name = "schedule_start_date")
     private String scheduleStartDate;
     
+    @Column(name = "schedule_end_date")
+    private String scheduleEndDate;
+    
+    @Column(name = "perform_start_date")
+    private String performStartDate;
+    
+    @Column(name = "perform_end_date")
+    private String performEndDate;
+    
+    @Column(name = "create_by")
+    private String createBy;
+    
+    @Column(name = "create_date")
+    private String createDate;
+    
+    @Column
+    private String status;
     // private CheckList checklist;
     
     // TODO setter getter 把Setter和Getter补充完， 可以用lombok
     
-    
+ /*
     public Long getId() {
         return id;
     }
@@ -69,5 +86,5 @@ public class AuditList implements Serializable {
     public String getScheduleStartDate(){ return scheduleStartDate;}
     public void setScheduleStartDate(String scheduleStartDate){ this.scheduleStartDate = scheduleStartDate;}
     
-    
+*/
 }

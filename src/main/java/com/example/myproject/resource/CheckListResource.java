@@ -1,6 +1,7 @@
 package com.example.myproject.resource;
 
 import com.example.myproject.entity.CheckList;
+import com.example.myproject.entity.User;
 import com.example.myproject.response.ResponseResult;
 import com.example.myproject.response.ResponsePage;
 import com.example.myproject.service.CheckListService;
@@ -8,7 +9,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-
+import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
@@ -30,12 +31,11 @@ public class CheckListResource {
      */
     @Path("list") // list?a=1&b=2
     @GET //RestFul风格： @GET 查询 @DELETE 删除 @UPDATE 更新 @POST 新增
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponsePage list(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
-        List result = checkListService.selectList(page,size);
-        ResponsePage responsePage = new ResponsePage();
-        responsePage.setData(result);
-        return responsePage;
+    public ResponsePage<CheckList> page(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
+        Page<CheckList> checkLists= checkListService.selectList(page,size);
+       return ResponsePage.success(checkLists);
     }
     
     
@@ -43,6 +43,7 @@ public class CheckListResource {
     //查询单个
     @GET
     @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseResult<CheckList> getById(@PathParam("id") Long id){
         CheckList result =  checkListService.getById(id);
@@ -52,9 +53,9 @@ public class CheckListResource {
     @DELETE
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult delete(@PathParam("id") Long id){
+    public ResponseResult<String> delete(@PathParam("id") Long id){
         checkListService.deleteById(id);
-        return ResponseResult.success(200);
+        return ResponseResult.success();
     }
     
     //更新
@@ -62,7 +63,7 @@ public class CheckListResource {
     @Path("id")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult<CheckListService> updateById(CheckList checkList){
+    public ResponseResult<CheckList> updateById(CheckList checkList){
          CheckList result = checkListService.updateById(checkList);
          return ResponseResult.success(result);
     }
@@ -71,8 +72,8 @@ public class CheckListResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseResult add(CheckList checkList){
-        CheckList result = checkListService.updateById(checkList);
+    public ResponseResult<CheckList> add(CheckList checkList){
+        CheckList result = checkListService.add(checkList);
         return ResponseResult.success(result);
     }
     

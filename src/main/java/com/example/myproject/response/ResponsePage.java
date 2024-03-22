@@ -28,14 +28,24 @@ public class ResponsePage<T> implements Serializable {
     
     public ResponsePage() {
         this.msg = "success";
-        this.code = 0;
+        this.code = 200;
     }
     
     public ResponsePage(long count, List<T> data) {
-        this.code = 0;
+        this.code = 200;
         this.msg = "success";
         this.count = count;
         this.data = data;
+    }
+    
+    /**
+     * 返回正常分页数据数据
+     * @param page 分页数据
+     * @param <T> 泛型
+     * @return 分页结果
+     */
+    public static <T> ResponsePage<T> success(Page<T> page){
+        return new ResponsePage<T>(page.getTotalElements(), page.getContent());
     }
     
     public String getMsg() {
@@ -79,7 +89,7 @@ public class ResponsePage<T> implements Serializable {
     /**
      * 设置IPage数据
      *
-     * @param page
+     * @param page page
      */
     public void setIPage(Page<T> page) {
         this.code = 200;

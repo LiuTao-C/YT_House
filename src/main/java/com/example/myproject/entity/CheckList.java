@@ -1,22 +1,18 @@
 package com.example.myproject.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.io.Serializable;
 
-//import lombok.Getter;
-//import lombok.Setter;
 
+@Data
 @Entity
-//@Getter
-//@Setter
 @Table(name = "checklist")
 public class CheckList implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
@@ -34,8 +30,9 @@ public class CheckList implements Serializable {
     @Column(name = "check_list_id")
     private Integer checkListId;
     
-    private Integer isDel = 0; // 1
-    
+//    private Integer isDel = 0; // 1
+ 
+ /*
     public Long getId() {
         return id;
     }
@@ -77,5 +74,5 @@ public class CheckList implements Serializable {
     public void setCheckListId(Integer checkListId) {
         this.checkListId = checkListId;
     }
-
+*/
 }
