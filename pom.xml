@@ -35,6 +35,8 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+        <!--文件上传-->
+
         <!--注入支持-->
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -78,13 +80,51 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-multipart</artifactId>
+            <version>2.35</version> <!-- 可能需要根据实际情况调整版本号 -->
+        </dependency>
+        <dependency>
+            <groupId>Maven_Repository.com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <version>3.15.1.Final</version> <!-- 根据你的项目需要选择合适的版本 -->
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.openapi</groupId>
+            <artifactId>microprofile-openapi-api</artifactId>
+            <version>3.0</version>
+            <scope>provided</scope>
+        </dependency>
 
 
 
     </dependencies>
     <build>
         <plugins>
+<!--            <plugin>-->
+<!--                <groupId>${quarkus.platform.group-id}</groupId>-->
+<!--                <artifactId>quarkus-maven-plugin</artifactId>-->
+<!--                <version>${quarkus.platform.version}</version>-->
+<!--                <extensions>true</extensions>-->
+<!--                <configuration>-->
+<!--                    <systemProperties>-->
+<!--                        <file.encoding>UTF-8</file.encoding>-->
+<!--                    </systemProperties>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>

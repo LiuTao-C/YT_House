@@ -60,7 +60,6 @@ public class CheckListResource {
     
     //更新
     @PUT
-    @Path("id")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseResult<CheckList> updateById(CheckList checkList){

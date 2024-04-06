@@ -8,6 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * 专注数据交互，直接对Path负责，这里不需要很负责的业务逻辑
  * 可以做一些参数校验， 比如某个值是否格式正确，
  */
+@Slf4j
 @Path("auditlist")
 @ApplicationScoped
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,11 +37,13 @@ public class AuditListResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponsePage<AuditList> page(@QueryParam("page")Integer page, @QueryParam("size") Integer size) {
-        // 这里可以将参数传递到下一层做分页
-//        System.out.println("page=============" + page);
-//        System.out.println("limit=============" + limit);
+        log.debug("page：{}, size: {}", page, size);
         Page<AuditList> auditlists = auditListService.selectList(page,size);
-        return ResponsePage.success(auditlists);
+        log.info("auditlists：{}", auditlists);
+        ResponsePage<AuditList> success = ResponsePage.success(auditlists);
+        log.debug("list method: end");
+        // debug < info < warn < error
+        return success;
     }
     
     // TODO 把service层做个业务封装到Controlller层， 参考上面的写法

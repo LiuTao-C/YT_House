@@ -32,4 +32,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  */
 public interface AuditListMapper extends JpaRepository<AuditList, Long> {
+    
+    AuditList findByCode(String code);
+    
 }
