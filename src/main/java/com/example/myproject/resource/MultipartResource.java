@@ -1,9 +1,14 @@
 package com.example.myproject.resource;
 
+import com.example.myproject.entity.UploadFile;
+import com.example.myproject.resource.util.FileHelper;
 import com.example.myproject.response.ResponseResult;
+import com.example.myproject.service.UploadFileService;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +22,11 @@ import java.nio.file.Paths;
 @Slf4j
 @Path("multipart")
 public class MultipartResource {
+    @Inject
+    UploadFileService uploadFileService;
+    @Inject
+    UploadFile uploadFile;
+    
     public static class Person {
         public String firstName;
         public String lastName;
@@ -47,10 +57,23 @@ public class MultipartResource {
         java.nio.file.Path outPath = outputDirectory.resolve(fileName);
         // 将文件数据保存到对应的目录文件夹下 -> D:\output\{{fileName}}
         Files.write(outPath, bytes);
+        
         // TODO: 写入文件后这个位置可以将文件信息保存数据库
-        log.info("上传文件名:{}", fileName);
-        log.info("上传文件大小:{}", fileUpload.size());
-        log.info("上传后文件路径:{}", outPath.toAbsolutePath());
+        
+        log.info("the file name is :{}", fileName);
+        log.info("the file size is :{}", fileUpload.size());
+        log.info("the file type is :{}", FileHelper.getFileExtension(fileName));
+        log.info("the file path is :{}", outPath.toAbsolutePath());
+        
+        String Type =  FileHelper.getFileExtension(fileName);
+        uploadFile.setFileName(fileName);
+        uploadFile.setFileSize(fileUpload.size());
+        uploadFile.setFileType(Type);
+        uploadFileService.updateById(uploadFile);
+        
         return ResponseResult.success();
     }
+    
+    
 }
+
