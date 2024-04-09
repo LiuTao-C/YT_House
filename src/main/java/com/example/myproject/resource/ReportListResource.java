@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ReportListResource {
+    
     @Inject
     ReportListService reportListService;
     //删除单个
