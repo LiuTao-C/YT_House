@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 09/04/2024 16:01:43
+ Date: 16/04/2024 10:46:03
 */
 
 SET NAMES utf8mb4;
@@ -38,72 +38,73 @@ CREATE TABLE `actionlist`  (
                                `department_collaboration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                `assessment_conclusion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                `corrective_measures` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of actionlist
 -- ----------------------------
-INSERT INTO `actionlist` VALUES (1, 'ACT-01-001', '阿里', '2024-03-26', '航班运营', 'ISO 9001', '2024-04-01', '2024-04-15', '南方航空', '未审批', '为了提高航班安全性，需要制定ISO 9001标准', '低风险', '长周期', '多部门协同', '通过', '需要与地勤部门协同执行');
-INSERT INTO `actionlist` VALUES (2, 'ACT-01-002', '腾讯', '2024-03-26', '货物运营', 'ICAO', '2024-04-05', '2024-04-20', '厦门航空', '行动中', '提升货物运输的安全标准以符合ICAO规定', '中低风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施修正措施');
-INSERT INTO `actionlist` VALUES (3, 'ACT-01-003', '百度', '2024-03-26', '乘客运营', 'ATA', '2024-04-10', '2024-04-25', '春秋航空', '中止', '改进乘客运营流程以符合ATA标准', '中风险', '临时周期', '无', '未通过', '需制定符合ATA标准的流程更新计划');
-INSERT INTO `actionlist` VALUES (4, 'ACT-01-004', '字节', '2024-03-26', '质量管理', 'EASA', '2024-04-15', '2024-04-30', '四川航空', '未审批', '制定符合EASA标准的质量管理流程', '中高风险', '长周期', '多部门协同', '未通过', '需要跨部门合作制定EASA标准的质量管理计划');
-INSERT INTO `actionlist` VALUES (5, 'ACT-01-005', '春秋航空', '2024-03-26', '飞行支持', 'ISO 9001', '2024-04-20', '2024-05-05', '厦门航空', '行动中', '优化飞行支持流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与飞行支持部门合作执行流程优化');
-INSERT INTO `actionlist` VALUES (6, 'ACT-01-006', '南方航空', '2024-03-26', '地面勤务', 'ICAO', '2024-04-25', '2024-05-10', '南方航空', '完成', '更新地面勤务设备以符合ICAO标准', '中低风险', '长周期', '无', '通过', '完成地勤设备更新工作');
-INSERT INTO `actionlist` VALUES (7, 'ACT-01-007', '腾讯', '2024-03-26', '机务维修', 'ATA', '2024-05-01', '2024-05-15', '春秋航空', '行动中', '改进机务维修流程以符合ATA标准', '中风险', '长周期', '多部门协同', '通过', '与维修部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (8, 'ACT-01-008', '百度', '2024-03-26', '航班运营', 'EASA', '2024-05-05', '2024-05-20', '山东航空', '未审批', '修订航班运营手册以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (9, 'ACT-01-009', '阿里', '2024-03-26', '货物运营', 'ISO 9001', '2024-05-10', '2024-05-25', '中国国际航空', '未审批', '优化货物运营流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与货运部门合作执行流程优化');
-INSERT INTO `actionlist` VALUES (10, 'ACT-01-010', '字节', '2024-03-26', '乘客运营', 'ICAO', '2024-05-15', '2024-05-30', '青岛航空', '行动中', '提升乘客服务水平以符合ICAO标准', '中低风险', '长周期', '多部门协同', '通过', '与客户服务部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (11, 'ACT-01-011', '南方航空', '2024-03-26', '质量管理', 'ATA', '2024-05-20', '2024-06-04', '厦门航空', '行动中', '改进质量管理体系以符合ATA标准', '中高风险', '长周期', '多部门协同', '通过', '与质量管理部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (12, 'ACT-01-012', '腾讯', '2024-03-26', '飞行支持', 'EASA', '2024-05-25', '2024-06-09', '春秋航空', '未审批', '更新飞行支持设备以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要跨部门合作制定EASA标准的设备更新计划');
-INSERT INTO `actionlist` VALUES (13, 'ACT-01-013', '百度', '2024-03-26', '地面勤务', 'ISO 9001', '2024-06-01', '2024-06-16', '南方航空', '行动中', '优化地面勤务流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (14, 'ACT-01-014', '阿里', '2024-03-26', '机务维修', 'ICAO', '2024-06-06', '2024-06-21', '山东航空', '中止', '更新机务维修设备以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的设备更新计划');
-INSERT INTO `actionlist` VALUES (15, 'ACT-01-015', '字节', '2024-03-26', '航班运营', 'ATA', '2024-06-11', '2024-06-26', '青岛航空', '未审批', '改进航班运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (16, 'ACT-01-016', '南方航空', '2024-03-26', '货物运营', 'EASA', '2024-06-16', '2024-07-01', '春秋航空', '行动中', '修订货物运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与货运部门合作制定EASA标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (17, 'ACT-01-017', '腾讯', '2024-03-26', '乘客运营', 'ISO 9001', '2024-06-21', '2024-07-06', '厦门航空', '行动中', '优化乘客服务流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (18, 'ACT-01-018', '百度', '2024-03-26', '质量管理', 'ICAO', '2024-06-26', '2024-07-11', '四川航空', '完成', '建立符合ICAO标准的质量管理体系', '中风险', '长周期', '无', '通过', '完成质量管理体系的建立');
-INSERT INTO `actionlist` VALUES (19, 'ACT-01-019', '阿里', '2024-03-26', '飞行支持', 'ATA', '2024-07-01', '2024-07-16', '山东航空', '行动中', '改进飞行支持流程以符合ATA标准', '中风险', '长周期', '多部门协同', '通过', '与飞行支持部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (20, 'ACT-01-020', '字节', '2024-03-26', '地面勤务', 'EASA', '2024-07-06', '2024-07-21', '中国国际航空', '未审批', '更新地面勤务设备以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要跨部门合作制定EASA标准的设备更新计划');
-INSERT INTO `actionlist` VALUES (21, 'ACT-01-021', '南方航空', '2024-03-26', '机务维修', 'ISO 9001', '2024-07-11', '2024-07-26', '春秋航空', '行动中', '优化机务维修流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (22, 'ACT-01-022', '腾讯', '2024-03-26', '航班运营', 'ICAO', '2024-07-16', '2024-07-31', '厦门航空', '中止', '修订航班运营手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (23, 'ACT-01-023', '百度', '2024-03-26', '货物运营', 'ATA', '2024-07-21', '2024-08-05', '四川航空', '未审批', '改进货物运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (24, 'ACT-01-024', '阿里', '2024-03-26', '乘客运营', 'EASA', '2024-07-26', '2024-08-10', '山东航空', '行动中', '修订乘客运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与客户服务部门合作制定EASA标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (25, 'ACT-01-025', '字节', '2024-03-26', '质量管理', 'ISO 9001', '2024-08-01', '2024-08-16', '中国国际航空', '行动中', '优化质量管理流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (26, 'ACT-01-026', '南方航空', '2024-03-26', '飞行支持', 'ICAO', '2024-08-06', '2024-08-21', '厦门航空', '完成', '建立符合ICAO标准的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立');
-INSERT INTO `actionlist` VALUES (27, 'ACT-01-027', '腾讯', '2024-03-26', '地面勤务', 'ATA', '2024-08-11', '2024-08-26', '春秋航空', '未审批', '优化地面勤务流程以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (28, 'ACT-01-028', '百度', '2024-03-26', '机务维修', 'EASA', '2024-08-16', '2024-08-31', '四川航空', '行动中', '改进机务维修流程以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与维修部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (29, 'ACT-01-029', '阿里', '2024-03-26', '航班运营', 'ISO 9001', '2024-08-21', '2024-09-05', '山东航空', '行动中', '优化航班运营流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (30, 'ACT-01-030', '字节', '2024-03-26', '货物运营', 'ICAO', '2024-08-26', '2024-09-10', '中国国际航空', '中止', '修订货物运营手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (31, 'ACT-01-031', '南方航空', '2024-03-26', '乘客运营', 'ATA', '2024-09-01', '2024-09-16', '厦门航空', '未审批', '改进乘客运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (32, 'ACT-01-032', '腾讯', '2024-03-26', '质量管理', 'EASA', '2024-09-06', '2024-09-21', '春秋航空', '行动中', '修订质量管理流程以符合EASA标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (33, 'ACT-01-033', '百度', '2024-03-26', '飞行支持', 'ISO 9001', '2024-09-11', '2024-09-26', '四川航空', '完成', '建立符合ISO 9001要求的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立');
-INSERT INTO `actionlist` VALUES (34, 'ACT-01-034', '阿里', '2024-03-26', '地面勤务', 'ICAO', '2024-09-16', '2024-10-01', '山东航空', '行动中', '优化地面勤务流程以符合ICAO标准', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (35, 'ACT-01-035', '字节', '2024-03-26', '机务维修', 'ATA', '2024-09-21', '2024-10-06', '中国国际航空', '未审批', '改进机务维修流程以符合ATA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ATA标准的流程优化计划');
-INSERT INTO `actionlist` VALUES (36, 'ACT-01-036', '南方航空', '2024-03-26', '航班运营', 'EASA', '2024-09-26', '2024-10-11', '厦门航空', '行动中', '修订航班运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与航班运营部门合作实施修订措施');
-INSERT INTO `actionlist` VALUES (37, 'ACT-01-037', '腾讯', '2024-03-26', '货物运营', 'ISO 9001', '2024-10-01', '2024-10-16', '春秋航空', '中止', '修订货物运营手册以符合ISO 9001要求', '中高风险', '长周期', '无', '未通过', '需要制定符合ISO 9001标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (38, 'ACT-01-038', '百度', '2024-03-26', '乘客运营', 'ICAO', '2024-10-06', '2024-10-21', '四川航空', '未审批', '优化乘客运营流程以符合ICAO标准', '中风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (39, 'ACT-01-039', '阿里', '2024-03-26', '质量管理', 'ATA', '2024-10-11', '2024-10-26', '山东航空', '行动中', '改进质量管理流程以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (40, 'ACT-01-040', '字节', '2024-03-26', '飞行支持', 'EASA', '2024-10-16', '2024-10-31', '中国国际航空', '完成', '建立符合EASA标准的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立');
-INSERT INTO `actionlist` VALUES (41, 'ACT-01-041', '南方航空', '2024-03-26', '地面勤务', 'ISO 9001', '2024-10-21', '2024-11-05', '厦门航空', '行动中', '优化地面勤务流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (42, 'ACT-01-042', '腾讯', '2024-03-26', '机务维修', 'ICAO', '2024-10-26', '2024-11-10', '春秋航空', '未审批', '修订机务维修手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (43, 'ACT-01-043', '百度', '2024-03-26', '航班运营', 'ATA', '2024-11-01', '2024-11-16', '四川航空', '行动中', '改进航班运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (44, 'ACT-01-044', '阿里', '2024-03-26', '货物运营', 'EASA', '2024-11-06', '2024-11-21', '山东航空', '中止', '修订货物运营手册以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的手册修订计划');
-INSERT INTO `actionlist` VALUES (45, 'ACT-01-045', '字节', '2024-03-26', '乘客运营', 'ISO 9001', '2024-11-11', '2024-11-26', '中国国际航空', '未审批', '优化乘客服务流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (46, 'ACT-01-046', '南方航空', '2024-03-26', '质量管理', 'ICAO', '2024-11-16', '2024-12-01', '厦门航空', '行动中', '改进质量管理流程以符合ICAO标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (47, 'ACT-01-047', '腾讯', '2024-03-26', '飞行支持', 'ATA', '2024-11-21', '2024-12-06', '春秋航空', '完成', '建立符合ATA标准的飞行支持体系', '中高风险', '长周期', '无', '通过', '完成飞行支持体系的建立');
-INSERT INTO `actionlist` VALUES (48, 'ACT-01-048', '百度', '2024-03-26', '地面勤务', 'EASA', '2024-11-26', '2024-12-11', '四川航空', '行动中', '修订地面勤务手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与地勤部门合作实施修订措施');
-INSERT INTO `actionlist` VALUES (49, 'ACT-01-049', '阿里', '2024-03-26', '机务维修', 'ISO 9001', '2024-12-01', '2024-12-16', '山东航空', '未审批', '改进机务维修流程以符合ISO 9001要求', '中风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (50, 'ACT-01-050', '字节', '2024-03-26', '航班运营', 'ICAO', '2024-12-06', '2024-12-21', '中国国际航空', '中止', '优化航班运营流程以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的流程优化计划');
-INSERT INTO `actionlist` VALUES (51, 'ACT-01-051', '南方航空', '2024-03-26', '货物运营', 'ATA', '2024-12-11', '2024-12-26', '厦门航空', '行动中', '修订货物运营手册以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施修订措施');
-INSERT INTO `actionlist` VALUES (52, 'ACT-01-052', '腾讯', '2024-03-26', '乘客运营', 'EASA', '2024-12-16', '2025-01-01', '春秋航空', '中止', '改进乘客运营流程以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的流程优化计划');
-INSERT INTO `actionlist` VALUES (53, 'ACT-01-053', '百度', '2024-03-26', '质量管理', 'ISO 9001', '2024-12-21', '2025-01-05', '四川航空', '未审批', '优化质量管理流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化');
-INSERT INTO `actionlist` VALUES (54, 'ACT-01-054', '阿里', '2024-03-26', '飞行支持', 'ICAO', '2024-12-26', '2025-01-10', '山东航空', '行动中', '改进飞行支持流程以符合ICAO标准', '中高风险', '长周期', '多部门协同', '通过', '与飞行支持部门合作实施改进措施');
-INSERT INTO `actionlist` VALUES (55, 'ACT-01-055', '字节', '2024-03-26', '地面勤务', 'ATA', '2025-01-01', '2025-01-16', '中国国际航空', '完成', '建立符合ATA标准的地面勤务体系', '中风险', '长周期', '无', '通过', '完成地面勤务体系的建立');
-INSERT INTO `actionlist` VALUES (56, 'ACT-01-056', '南方航空', '2024-03-26', '机务维修', 'EASA', '2025-01-06', '2025-01-21', '厦门航空', '行动中', '修订机务维修手册以符合EASA标准', '中低风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施修订措施');
-INSERT INTO `actionlist` VALUES (57, 'ACT-01-057', '腾讯', '2024-03-26', '航班运营', 'ISO 9001', '2025-01-11', '2025-01-26', '春秋航空', '行动中', '优化航班运营流程以符合ISO 9001要求', '中风险', '长周期', '多部门协同', '通过', '与航班运营部门合作实施优化措施');
-INSERT INTO `actionlist` VALUES (58, 'ACT-01-058', '百度', '2024-03-26', '货物运营', 'ICAO', '2025-01-16', '2025-01-31', '四川航空', '中止', '改进货物运营流程以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的流程优化计划');
-INSERT INTO `actionlist` VALUES (59, 'ACT-01-059', '阿里', '2024-03-26', '乘客运营', 'ATA', '2025-01-21', '2025-02-05', '山东航空', '未审批', '修订乘客运营手册以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施修订措施');
-INSERT INTO `actionlist` VALUES (60, 'ACT-01-060', '字节', '2024-03-26', '质量管理', 'EASA', '2025-01-26', '2025-02-10', '中国国际航空', '行动中', '优化质量管理流程以符合EASA标准', '中风险', '长周期', '多部门协同', '通过', '与质量管理部门合作实施优化措施');
+INSERT INTO `actionlist` VALUES (1, 'ACT-01-001', '阿里', '2024-03-26', '航班运营', 'ISO 9001', '2024-04-01', '2024-04-15', '南方航空', '未审批', '为了提高航班安全性，需要制定ISO 9001标准', '低风险', '长周期', '多部门协同', '通过', '需要与地勤部门协同执行', NULL);
+INSERT INTO `actionlist` VALUES (2, 'ACT-01-002', '腾讯', '2024-03-26', '货物运营', 'ICAO', '2024-04-05', '2024-04-20', '厦门航空', '行动中', '提升货物运输的安全标准以符合ICAO规定', '中低风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施修正措施', NULL);
+INSERT INTO `actionlist` VALUES (3, 'ACT-01-003', '百度', '2024-03-26', '乘客运营', 'ATA', '2024-04-10', '2024-04-25', '春秋航空', '中止', '改进乘客运营流程以符合ATA标准', '中风险', '临时周期', '无', '未通过', '需制定符合ATA标准的流程更新计划', NULL);
+INSERT INTO `actionlist` VALUES (4, 'ACT-01-004', '字节', '2024-03-26', '质量管理', 'EASA', '2024-04-15', '2024-04-30', '四川航空', '未审批', '制定符合EASA标准的质量管理流程', '中高风险', '长周期', '多部门协同', '未通过', '需要跨部门合作制定EASA标准的质量管理计划', NULL);
+INSERT INTO `actionlist` VALUES (5, 'ACT-01-005', '春秋航空', '2024-03-26', '飞行支持', 'ISO 9001', '2024-04-20', '2024-05-05', '厦门航空', '行动中', '优化飞行支持流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与飞行支持部门合作执行流程优化', NULL);
+INSERT INTO `actionlist` VALUES (6, 'ACT-01-006', '南方航空', '2024-03-26', '地面勤务', 'ICAO', '2024-04-25', '2024-05-10', '南方航空', '完成', '更新地面勤务设备以符合ICAO标准', '中低风险', '长周期', '无', '通过', '完成地勤设备更新工作', NULL);
+INSERT INTO `actionlist` VALUES (7, 'ACT-01-007', '腾讯', '2024-03-26', '机务维修', 'ATA', '2024-05-01', '2024-05-15', '春秋航空', '行动中', '改进机务维修流程以符合ATA标准', '中风险', '长周期', '多部门协同', '通过', '与维修部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (8, 'ACT-01-008', '百度', '2024-03-26', '航班运营', 'EASA', '2024-05-05', '2024-05-20', '山东航空', '未审批', '修订航班运营手册以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (9, 'ACT-01-009', '阿里', '2024-03-26', '货物运营', 'ISO 9001', '2024-05-10', '2024-05-25', '中国国际航空', '未审批', '优化货物运营流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与货运部门合作执行流程优化', NULL);
+INSERT INTO `actionlist` VALUES (10, 'ACT-01-010', '字节', '2024-03-26', '乘客运营', 'ICAO', '2024-05-15', '2024-05-30', '青岛航空', '行动中', '提升乘客服务水平以符合ICAO标准', '中低风险', '长周期', '多部门协同', '通过', '与客户服务部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (11, 'ACT-01-011', '南方航空', '2024-03-26', '质量管理', 'ATA', '2024-05-20', '2024-06-04', '厦门航空', '行动中', '改进质量管理体系以符合ATA标准', '中高风险', '长周期', '多部门协同', '通过', '与质量管理部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (12, 'ACT-01-012', '腾讯', '2024-03-26', '飞行支持', 'EASA', '2024-05-25', '2024-06-09', '春秋航空', '未审批', '更新飞行支持设备以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要跨部门合作制定EASA标准的设备更新计划', NULL);
+INSERT INTO `actionlist` VALUES (13, 'ACT-01-013', '百度', '2024-03-26', '地面勤务', 'ISO 9001', '2024-06-01', '2024-06-16', '南方航空', '行动中', '优化地面勤务流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (14, 'ACT-01-014', '阿里', '2024-03-26', '机务维修', 'ICAO', '2024-06-06', '2024-06-21', '山东航空', '中止', '更新机务维修设备以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的设备更新计划', NULL);
+INSERT INTO `actionlist` VALUES (15, 'ACT-01-015', '字节', '2024-03-26', '航班运营', 'ATA', '2024-06-11', '2024-06-26', '青岛航空', '未审批', '改进航班运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (16, 'ACT-01-016', '南方航空', '2024-03-26', '货物运营', 'EASA', '2024-06-16', '2024-07-01', '春秋航空', '行动中', '修订货物运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与货运部门合作制定EASA标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (17, 'ACT-01-017', '腾讯', '2024-03-26', '乘客运营', 'ISO 9001', '2024-06-21', '2024-07-06', '厦门航空', '行动中', '优化乘客服务流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (18, 'ACT-01-018', '百度', '2024-03-26', '质量管理', 'ICAO', '2024-06-26', '2024-07-11', '四川航空', '完成', '建立符合ICAO标准的质量管理体系', '中风险', '长周期', '无', '通过', '完成质量管理体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (19, 'ACT-01-019', '阿里', '2024-03-26', '飞行支持', 'ATA', '2024-07-01', '2024-07-16', '山东航空', '行动中', '改进飞行支持流程以符合ATA标准', '中风险', '长周期', '多部门协同', '通过', '与飞行支持部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (20, 'ACT-01-020', '字节', '2024-03-26', '地面勤务', 'EASA', '2024-07-06', '2024-07-21', '中国国际航空', '未审批', '更新地面勤务设备以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要跨部门合作制定EASA标准的设备更新计划', NULL);
+INSERT INTO `actionlist` VALUES (21, 'ACT-01-021', '南方航空', '2024-03-26', '机务维修', 'ISO 9001', '2024-07-11', '2024-07-26', '春秋航空', '行动中', '优化机务维修流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (22, 'ACT-01-022', '腾讯', '2024-03-26', '航班运营', 'ICAO', '2024-07-16', '2024-07-31', '厦门航空', '中止', '修订航班运营手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (23, 'ACT-01-023', '百度', '2024-03-26', '货物运营', 'ATA', '2024-07-21', '2024-08-05', '四川航空', '未审批', '改进货物运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (24, 'ACT-01-024', '阿里', '2024-03-26', '乘客运营', 'EASA', '2024-07-26', '2024-08-10', '山东航空', '行动中', '修订乘客运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与客户服务部门合作制定EASA标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (25, 'ACT-01-025', '字节', '2024-03-26', '质量管理', 'ISO 9001', '2024-08-01', '2024-08-16', '中国国际航空', '行动中', '优化质量管理流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (26, 'ACT-01-026', '南方航空', '2024-03-26', '飞行支持', 'ICAO', '2024-08-06', '2024-08-21', '厦门航空', '完成', '建立符合ICAO标准的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (27, 'ACT-01-027', '腾讯', '2024-03-26', '地面勤务', 'ATA', '2024-08-11', '2024-08-26', '春秋航空', '未审批', '优化地面勤务流程以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (28, 'ACT-01-028', '百度', '2024-03-26', '机务维修', 'EASA', '2024-08-16', '2024-08-31', '四川航空', '行动中', '改进机务维修流程以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与维修部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (29, 'ACT-01-029', '阿里', '2024-03-26', '航班运营', 'ISO 9001', '2024-08-21', '2024-09-05', '山东航空', '行动中', '优化航班运营流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (30, 'ACT-01-030', '字节', '2024-03-26', '货物运营', 'ICAO', '2024-08-26', '2024-09-10', '中国国际航空', '中止', '修订货物运营手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (31, 'ACT-01-031', '南方航空', '2024-03-26', '乘客运营', 'ATA', '2024-09-01', '2024-09-16', '厦门航空', '未审批', '改进乘客运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (32, 'ACT-01-032', '腾讯', '2024-03-26', '质量管理', 'EASA', '2024-09-06', '2024-09-21', '春秋航空', '行动中', '修订质量管理流程以符合EASA标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (33, 'ACT-01-033', '百度', '2024-03-26', '飞行支持', 'ISO 9001', '2024-09-11', '2024-09-26', '四川航空', '完成', '建立符合ISO 9001要求的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (34, 'ACT-01-034', '阿里', '2024-03-26', '地面勤务', 'ICAO', '2024-09-16', '2024-10-01', '山东航空', '行动中', '优化地面勤务流程以符合ICAO标准', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (35, 'ACT-01-035', '字节', '2024-03-26', '机务维修', 'ATA', '2024-09-21', '2024-10-06', '中国国际航空', '未审批', '改进机务维修流程以符合ATA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ATA标准的流程优化计划', NULL);
+INSERT INTO `actionlist` VALUES (36, 'ACT-01-036', '南方航空', '2024-03-26', '航班运营', 'EASA', '2024-09-26', '2024-10-11', '厦门航空', '行动中', '修订航班运营手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与航班运营部门合作实施修订措施', NULL);
+INSERT INTO `actionlist` VALUES (37, 'ACT-01-037', '腾讯', '2024-03-26', '货物运营', 'ISO 9001', '2024-10-01', '2024-10-16', '春秋航空', '中止', '修订货物运营手册以符合ISO 9001要求', '中高风险', '长周期', '无', '未通过', '需要制定符合ISO 9001标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (38, 'ACT-01-038', '百度', '2024-03-26', '乘客运营', 'ICAO', '2024-10-06', '2024-10-21', '四川航空', '未审批', '优化乘客运营流程以符合ICAO标准', '中风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (39, 'ACT-01-039', '阿里', '2024-03-26', '质量管理', 'ATA', '2024-10-11', '2024-10-26', '山东航空', '行动中', '改进质量管理流程以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (40, 'ACT-01-040', '字节', '2024-03-26', '飞行支持', 'EASA', '2024-10-16', '2024-10-31', '中国国际航空', '完成', '建立符合EASA标准的飞行支持体系', '中风险', '长周期', '无', '通过', '完成飞行支持体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (41, 'ACT-01-041', '南方航空', '2024-03-26', '地面勤务', 'ISO 9001', '2024-10-21', '2024-11-05', '厦门航空', '行动中', '优化地面勤务流程以符合ISO 9001要求', '中低风险', '短周期', '单个部门协同', '通过', '与地勤部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (42, 'ACT-01-042', '腾讯', '2024-03-26', '机务维修', 'ICAO', '2024-10-26', '2024-11-10', '春秋航空', '未审批', '修订机务维修手册以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (43, 'ACT-01-043', '百度', '2024-03-26', '航班运营', 'ATA', '2024-11-01', '2024-11-16', '四川航空', '行动中', '改进航班运营流程以符合ATA标准', '中风险', '短周期', '单个部门协同', '通过', '与航班运营部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (44, 'ACT-01-044', '阿里', '2024-03-26', '货物运营', 'EASA', '2024-11-06', '2024-11-21', '山东航空', '中止', '修订货物运营手册以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的手册修订计划', NULL);
+INSERT INTO `actionlist` VALUES (45, 'ACT-01-045', '字节', '2024-03-26', '乘客运营', 'ISO 9001', '2024-11-11', '2024-11-26', '中国国际航空', '未审批', '优化乘客服务流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (46, 'ACT-01-046', '南方航空', '2024-03-26', '质量管理', 'ICAO', '2024-11-16', '2024-12-01', '厦门航空', '行动中', '改进质量管理流程以符合ICAO标准', '中低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (47, 'ACT-01-047', '腾讯', '2024-03-26', '飞行支持', 'ATA', '2024-11-21', '2024-12-06', '春秋航空', '完成', '建立符合ATA标准的飞行支持体系', '中高风险', '长周期', '无', '通过', '完成飞行支持体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (48, 'ACT-01-048', '百度', '2024-03-26', '地面勤务', 'EASA', '2024-11-26', '2024-12-11', '四川航空', '行动中', '修订地面勤务手册以符合EASA标准', '中高风险', '长周期', '多部门协同', '通过', '与地勤部门合作实施修订措施', NULL);
+INSERT INTO `actionlist` VALUES (49, 'ACT-01-049', '阿里', '2024-03-26', '机务维修', 'ISO 9001', '2024-12-01', '2024-12-16', '山东航空', '未审批', '改进机务维修流程以符合ISO 9001要求', '中风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (50, 'ACT-01-050', '字节', '2024-03-26', '航班运营', 'ICAO', '2024-12-06', '2024-12-21', '中国国际航空', '中止', '优化航班运营流程以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的流程优化计划', NULL);
+INSERT INTO `actionlist` VALUES (51, 'ACT-01-051', '南方航空', '2024-03-26', '货物运营', 'ATA', '2024-12-11', '2024-12-26', '厦门航空', '行动中', '修订货物运营手册以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与货运部门合作实施修订措施', NULL);
+INSERT INTO `actionlist` VALUES (52, 'ACT-01-052', '腾讯', '2024-03-26', '乘客运营', 'EASA', '2024-12-16', '2025-01-01', '春秋航空', '中止', '改进乘客运营流程以符合EASA标准', '中高风险', '长周期', '无', '未通过', '需要制定符合EASA标准的流程优化计划', NULL);
+INSERT INTO `actionlist` VALUES (53, 'ACT-01-053', '百度', '2024-03-26', '质量管理', 'ISO 9001', '2024-12-21', '2025-01-05', '四川航空', '未审批', '优化质量管理流程以符合ISO 9001要求', '低风险', '短周期', '单个部门协同', '通过', '与质量管理部门合作实施流程优化', NULL);
+INSERT INTO `actionlist` VALUES (54, 'ACT-01-054', '阿里', '2024-03-26', '飞行支持', 'ICAO', '2024-12-26', '2025-01-10', '山东航空', '行动中', '改进飞行支持流程以符合ICAO标准', '中高风险', '长周期', '多部门协同', '通过', '与飞行支持部门合作实施改进措施', NULL);
+INSERT INTO `actionlist` VALUES (55, 'ACT-01-055', '字节', '2024-03-26', '地面勤务', 'ATA', '2025-01-01', '2025-01-16', '中国国际航空', '完成', '建立符合ATA标准的地面勤务体系', '中风险', '长周期', '无', '通过', '完成地面勤务体系的建立', NULL);
+INSERT INTO `actionlist` VALUES (56, 'ACT-01-056', '南方航空', '2024-03-26', '机务维修', 'EASA', '2025-01-06', '2025-01-21', '厦门航空', '行动中', '修订机务维修手册以符合EASA标准', '中低风险', '短周期', '单个部门协同', '通过', '与维修部门合作实施修订措施', NULL);
+INSERT INTO `actionlist` VALUES (57, 'ACT-01-057', '腾讯', '2024-03-26', '航班运营', 'ISO 9001', '2025-01-11', '2025-01-26', '春秋航空', '行动中', '优化航班运营流程以符合ISO 9001要求', '中风险', '长周期', '多部门协同', '通过', '与航班运营部门合作实施优化措施', NULL);
+INSERT INTO `actionlist` VALUES (58, 'ACT-01-058', '百度', '2024-03-26', '货物运营', 'ICAO', '2025-01-16', '2025-01-31', '四川航空', '中止', '改进货物运营流程以符合ICAO标准', '中高风险', '长周期', '无', '未通过', '需要制定符合ICAO标准的流程优化计划', NULL);
+INSERT INTO `actionlist` VALUES (59, 'ACT-01-059', '阿里', '2024-03-26', '乘客运营', 'ATA', '2025-01-21', '2025-02-05', '山东航空', '未审批', '修订乘客运营手册以符合ATA标准', '中低风险', '短周期', '单个部门协同', '通过', '与客户服务部门合作实施修订措施', NULL);
+INSERT INTO `actionlist` VALUES (60, 'ACT-01-060', '字节', '2024-03-26', '质量管理', 'EASA', '2025-01-26', '2025-02-10', '中国国际航空', '行动中', '优化质量管理流程以符合EASA标准', '中风险', '长周期', '多部门协同', '通过', '与质量管理部门合作实施优化措施', NULL);
 
 -- ----------------------------
 -- Table structure for auditlist
@@ -242,34 +243,6 @@ INSERT INTO `department` VALUES (4, '航班运营');
 INSERT INTO `department` VALUES (3, '行政部门');
 
 -- ----------------------------
--- Table structure for known_fruits
--- ----------------------------
-DROP TABLE IF EXISTS `known_fruits`;
-CREATE TABLE `known_fruits`  (
-                                 `id` int(0) NOT NULL,
-                                 `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                                 PRIMARY KEY (`id`) USING BTREE,
-                                 UNIQUE INDEX `UK_57g3m8wr3qxoj706a6hsqg6ye`(`name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of known_fruits
--- ----------------------------
-
--- ----------------------------
--- Table structure for known_fruits_id_seq
--- ----------------------------
-DROP TABLE IF EXISTS `known_fruits_id_seq`;
-CREATE TABLE `known_fruits_id_seq`  (
-                                        `next_val` bigint(0) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of known_fruits_id_seq
--- ----------------------------
-INSERT INTO `known_fruits_id_seq` VALUES (10);
-
--- ----------------------------
 -- Table structure for reportfile
 -- ----------------------------
 DROP TABLE IF EXISTS `reportfile`;
@@ -279,55 +252,66 @@ CREATE TABLE `reportfile`  (
                                `file_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                `file_size` bigint(0) NULL DEFAULT NULL,
                                `file_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `origin_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
                                PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reportfile
 -- ----------------------------
+INSERT INTO `reportfile` VALUES (1, '2ca8ad045ec3464f82c19594ce7ea308.jpg', 'D:\\storefile', 93843, 'jpg', '蓝版图片.jpg');
+INSERT INTO `reportfile` VALUES (2, 'b59dfa8a1d07475cb2a8e1f79d08a3d8.png', 'D:\\storefile', 7074, 'png', '个人签名.png');
+INSERT INTO `reportfile` VALUES (3, '2e8e4145fff44313be9be239efae5f35.png', 'D:\\storefile', 72144, 'png', 'logoA.png');
+INSERT INTO `reportfile` VALUES (4, '92387325f6c947888cf316ee869c8a8a.docx', 'D:\\storefile', 210455, 'docx', '学习笔记.docx');
+INSERT INTO `reportfile` VALUES (5, 'a15fe6c0c571480092fdb7dd530f11e8.xlsx', 'D:\\storefile', 9365, 'xlsx', '开发情况.xlsx');
+INSERT INTO `reportfile` VALUES (6, 'a4293ac1e896487fb4254c9cd6b20a70.txt', 'D:\\storefile', 121, 'txt', '任务表.txt');
 
 -- ----------------------------
 -- Table structure for reportlist
 -- ----------------------------
 DROP TABLE IF EXISTS `reportlist`;
 CREATE TABLE `reportlist`  (
-                               `id` bigint(0) NOT NULL AUTO_INCREMENT,
-                               `conclusion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `evaluation_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `evaluator` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `event_risk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `event_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `final_confirmation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `flight_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `nedd_expert_research` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `need_research` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `report_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `report_introduction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `reportdate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-                               `theme` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `id` int(0) NOT NULL AUTO_INCREMENT,
                                `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `theme` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `report_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `reportdate` date NULL DEFAULT NULL,
+                               `reporter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `flight_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `report_introduction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `event_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `event_risk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `evaluator` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `evaluation_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `conclusion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                               `need_research` tinyint(1) NULL DEFAULT NULL,
+                               `need_expert_research` tinyint(1) NULL DEFAULT NULL,
                                PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reportlist
 -- ----------------------------
-
--- ----------------------------
--- Table structure for uploaded_files
--- ----------------------------
-DROP TABLE IF EXISTS `uploaded_files`;
-CREATE TABLE `uploaded_files`  (
-                                   `id` int(0) NOT NULL AUTO_INCREMENT,
-                                   `file_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-                                   `file_data` longblob NOT NULL,
-                                   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of uploaded_files
--- ----------------------------
+INSERT INTO `reportlist` VALUES (1, '客舱管理', '主题1', '报告编号1', '2024-04-01', '张三', '航班号1', '报告介绍1', '事件类型1', '事件风险1', '评估员1', '评估日期1', '结论1', 1, 0);
+INSERT INTO `reportlist` VALUES (2, '客舱管理', '主题2', '报告编号2', '2024-04-02', '李四', '航班号2', '报告介绍2', '事件类型2', '事件风险2', '评估员2', '评估日期2', '结论2', 1, 0);
+INSERT INTO `reportlist` VALUES (3, '客舱管理', '主题3', '报告编号3', '2024-04-03', '王五', '航班号3', '报告介绍3', '事件类型3', '事件风险3', '评估员3', '评估日期3', '结论3', 1, 0);
+INSERT INTO `reportlist` VALUES (4, '客舱管理', '主题4', '报告编号4', '2024-04-04', '赵六', '航班号4', '报告介绍4', '事件类型4', '事件风险4', '评估员4', '评估日期4', '结论4', 1, 0);
+INSERT INTO `reportlist` VALUES (5, '客舱管理', '主题5', '报告编号5', '2024-04-05', '钱七', '航班号5', '报告介绍5', '事件类型5', '事件风险5', '评估员5', '评估日期5', '结论5', 1, 0);
+INSERT INTO `reportlist` VALUES (6, '客舱管理', '主题6', '报告编号6', '2024-04-06', '孙八', '航班号6', '报告介绍6', '事件类型6', '事件风险6', '评估员6', '评估日期6', '结论6', 1, 0);
+INSERT INTO `reportlist` VALUES (7, '客舱管理', '主题7', '报告编号7', '2024-04-07', '周九', '航班号7', '报告介绍7', '事件类型7', '事件风险7', '评估员7', '评估日期7', '结论7', 1, 0);
+INSERT INTO `reportlist` VALUES (8, '客舱管理', '主题8', '报告编号8', '2024-04-08', '吴十', '航班号8', '报告介绍8', '事件类型8', '事件风险8', '评估员8', '评估日期8', '结论8', 1, 0);
+INSERT INTO `reportlist` VALUES (9, '客舱管理', '主题9', '报告编号9', '2024-04-09', '郑十一', '航班号9', '报告介绍9', '事件类型9', '事件风险9', '评估员9', '评估日期9', '结论9', 1, 0);
+INSERT INTO `reportlist` VALUES (10, '客舱管理', '主题10', '报告编号10', '2024-04-10', '王十二', '航班号10', '报告介绍10', '事件类型10', '事件风险10', '评估员10', '评估日期10', '结论10', 1, 0);
+INSERT INTO `reportlist` VALUES (11, '客舱管理', '主题11', '报告编号11', '2024-04-11', '赵十三', '航班号11', '报告介绍11', '事件类型11', '事件风险11', '评估员11', '评估日期11', '结论11', 1, 0);
+INSERT INTO `reportlist` VALUES (12, '客舱管理', '主题12', '报告编号12', '2024-04-12', '钱十四', '航班号12', '报告介绍12', '事件类型12', '事件风险12', '评估员12', '评估日期12', '结论12', 1, 0);
+INSERT INTO `reportlist` VALUES (13, '客舱管理', '主题13', '报告编号13', '2024-04-13', '孙十五', '航班号13', '报告介绍13', '事件类型13', '事件风险13', '评估员13', '评估日期13', '结论13', 1, 0);
+INSERT INTO `reportlist` VALUES (14, '客舱管理', '主题14', '报告编号14', '2024-04-14', '周十六', '航班号14', '报告介绍14', '事件类型14', '事件风险14', '评估员14', '评估日期14', '结论14', 1, 0);
+INSERT INTO `reportlist` VALUES (15, '客舱管理', '主题15', '报告编号15', '2024-04-15', '吴十七', '航班号15', '报告介绍15', '事件类型15', '事件风险15', '评估员15', '评估日期15', '结论15', 1, 0);
+INSERT INTO `reportlist` VALUES (16, '客舱管理', '主题16', '报告编号16', '2024-04-16', '郑十八', '航班号16', '报告介绍16', '事件类型16', '事件风险16', '评估员16', '评估日期16', '结论16', 1, 0);
+INSERT INTO `reportlist` VALUES (17, '客舱管理', '主题17', '报告编号17', '2024-04-17', '王十九', '航班号17', '报告介绍17', '事件类型17', '事件风险17', '评估员17', '评估日期17', '结论17', 1, 0);
+INSERT INTO `reportlist` VALUES (18, '客舱管理', '主题18', '报告编号18', '2024-04-18', '赵二十', '航班号18', '报告介绍18', '事件类型18', '事件风险18', '评估员18', '评估日期18', '结论18', 1, 0);
+INSERT INTO `reportlist` VALUES (19, '客舱管理', '主题19', '报告编号19', '2024-04-19', '钱二十一', '航班号19', '报告介绍19', '事件类型19', '事件风险19', '评估员19', '评估日期19', '结论19', 1, 0);
+INSERT INTO `reportlist` VALUES (20, '客舱管理', '主题20', '报告编号20', '2024-04-20', '孙二十二', '航班号20', '报告介绍20', '事件类型20', '事件风险20', '评估员20', '评估日期20', '结论20', 1, 0);
 
 -- ----------------------------
 -- Table structure for user

@@ -26,13 +26,16 @@ public class ReportList implements Serializable {
     @Column
     private String reportdate;
     
+    @Column
+    private String reporter;
+    
     
     @Column(name ="flight_number")
-    private String filghtNumber;
+    private String flightNumber;
     
     
-    @Column
-    private String position;
+//    @Column
+//    private String position;
     
     
     @Column(name = "report_introduction")
@@ -56,15 +59,15 @@ public class ReportList implements Serializable {
     @Column
     private String conclusion;
     
-    
-    @Column(name = "final_confirmation")
-    private String finalConfirmation;
+//
+//    @Column(name = "final_confirmation")
+//    private String finalConfirmation;
     
     
     @Column(name = "need_research")
     private String needReaserch;
     
-    @Column(name = "nedd_expert_research")
+    @Column(name = "need_expert_research")
     private  String needExpertResearch;
     
 }

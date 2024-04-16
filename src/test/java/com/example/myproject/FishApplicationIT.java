@@ -3,6 +3,6 @@ package com.example.myproject;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class FruitMainIT extends FruitMainTest {
+class FishApplicationIT extends FishApplicationTest {
     // Execute the same tests but in packaged mode.
 }

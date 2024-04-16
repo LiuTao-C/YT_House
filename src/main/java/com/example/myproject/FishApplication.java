@@ -1,13 +1,11 @@
 package com.example.myproject;
 
-import jakarta.inject.Inject;
-
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
 import io.quarkus.runtime.Quarkus;
 
 @QuarkusMain
-public class FruitMain implements QuarkusApplication {
+public class FishApplication implements QuarkusApplication {
     
     
     @Override
@@ -19,7 +17,7 @@ public class FruitMain implements QuarkusApplication {
     
     
     public static void main(String... args) {
-        Quarkus.run(FruitMain.class, args);
+        Quarkus.run(FishApplication.class, args);
     }
     
     

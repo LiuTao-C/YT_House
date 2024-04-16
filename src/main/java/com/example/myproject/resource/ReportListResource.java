@@ -18,10 +18,11 @@ public class ReportListResource {
     
     @Inject
     ReportListService reportListService;
-    //删除单个
+    //查询所有
     @Path("list")
     @GET
-  
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public ResponsePage<ReportList>pageAll(@QueryParam("page") Integer page ,@QueryParam("size") Integer size){
         Page<ReportList>  reportListPage = reportListService.selectList(page,size);
         return ResponsePage.success(reportListPage);
@@ -29,6 +30,7 @@ public class ReportListResource {
     //查询单个
     @Path("{id}")
     @GET
+    
     public ResponseResult<ReportList>getById(@PathParam("id")Long id){
         ReportList result = reportListService.getById(id);
         return ResponseResult.success(result);

@@ -18,7 +18,7 @@ public class ReportListService {
     
     //查找所有
    public  Page<ReportList> selectList(int page ,int size){
-       Pageable pageable = PageRequest.of(page, size);
+       Pageable pageable = PageRequest.of(page-1, size);
        return reportListMapper.findAll(pageable);
    }
    

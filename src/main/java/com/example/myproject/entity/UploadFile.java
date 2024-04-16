@@ -24,5 +24,8 @@ public class UploadFile {
     @Column(name = "file_type")
     private String fileType;
     
+    
+    @Column(name = "origin_name")
+    private String originName;
 
 }

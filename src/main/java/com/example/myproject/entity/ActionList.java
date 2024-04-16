@@ -60,6 +60,7 @@ public class ActionList implements Serializable {
     @Column(name = "corrective_measures")
     private String correctiveMeasures;
     
-    
+    @Column
+    private  String type;
     
 }
