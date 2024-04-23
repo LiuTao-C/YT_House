@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus_test1 .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus_study .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/quarkus_test1
+# docker run -i --rm -p 8080:8080 quarkus/quarkus_study
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0

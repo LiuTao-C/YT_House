@@ -1,8 +1,8 @@
-package com.example.myproject;
+package org.example.yt;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class FishApplicationIT extends FishApplicationTest {
+class ExampleResourceIT extends ExampleResourceTest {
     // Execute the same tests but in packaged mode.
 }
