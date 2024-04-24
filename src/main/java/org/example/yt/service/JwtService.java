@@ -25,15 +25,6 @@ public class JwtService {
         String token = id + "@" +date;
         System.out.println("token,"+token);
         return token;
-        /**
-        //hash 256 和秘钥生成token
-        String token  = JWT.create()
-                .withIssuer("my_issuer")    //签发者
-                .withSubject(username)      //主题是 用户名
-                .withExpiresAt(expiresAt)   //过期时间
-                .sign(Algorithm.HMAC256("fishbull")); //HMAC为签名加密的方法，秘钥是 fishbull
-        return "Bearer" + token; //添加bearer 前缀 ，符合jwt规范
-         */
     }
 
 }

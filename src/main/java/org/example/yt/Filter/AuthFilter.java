@@ -15,29 +15,39 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 
 @Provider
 @ApplicationScoped
 public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFilter {
     
-    @Inject
-    JwtService jwtService;
+    
+    private static final String []whitelist_path = {"/auditlistview","/actlistview","/reportlistview","/login"};
+
     
     @Override
     public void filter(ContainerRequestContext requestContext){
+        
+        //遍历白名单路径
+        String requestPath = requestContext.getUriInfo().getPath();
+        for(String path : whitelist_path){
+            if(requestPath.startsWith(path)){
+                return;
+            }
+        }
+        
         //检查token
         String token= requestContext.getHeaderString("Authorization");
         if( token  == null || token.isEmpty() ){        //响应过滤器中token不存在或者无效
-//            requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("token is null").build());
+            requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("token is null").build());
+            return;
             
         }else if (!isValidToken(token)){
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("Invalid token").build());
+            return;
+        }else{
+            return;
         }
-        requestContext.setProperty("authenticated",true);       //验证完毕
-        Boolean authenticated = (Boolean) requestContext.getProperty("authenticated");
-        //解析token
-        //todo  这个传递我不会写，待会再改
-
     }
     
     
@@ -54,8 +64,6 @@ public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFil
             if( userId.equals("1") || userId.equals("2")){      //user白名单
                 return true;
             }
-         
-            
              // 定义日期时间格式化器
              DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
              
@@ -67,7 +75,6 @@ public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFil
                     return true;
                 }
                 return false;
-               
             }
         
  
