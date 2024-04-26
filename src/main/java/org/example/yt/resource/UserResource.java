@@ -22,7 +22,6 @@ public class UserResource {
     JwtService jwtService;
     
     @POST
-    @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseResult<String> login(LoginRequest loginRequest){
         

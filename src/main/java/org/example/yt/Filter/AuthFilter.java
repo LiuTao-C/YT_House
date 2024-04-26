@@ -2,13 +2,10 @@ package org.example.yt.Filter;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.container.*;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 
-import jakarta.ws.rs.container.ContainerRequestContext;
-import jakarta.ws.rs.container.ContainerRequestFilter;
-import jakarta.ws.rs.container.ContainerResponseContext;
-import jakarta.ws.rs.container.ContainerResponseFilter;
 import org.example.yt.service.JwtService;
 
 import java.io.IOException;
@@ -19,6 +16,7 @@ import java.util.HashSet;
 
 @Provider
 @ApplicationScoped
+@PreMatching
 public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFilter {
     
     
@@ -30,6 +28,7 @@ public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFil
         
         //遍历白名单路径
         String requestPath = requestContext.getUriInfo().getPath();
+        System.out.println("path is "+requestPath);
         for(String path : whitelist_path){
             if(requestPath.startsWith(path)){
                 return;

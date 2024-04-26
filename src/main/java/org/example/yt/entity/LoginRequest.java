@@ -13,9 +13,10 @@ public class LoginRequest  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "user_name")
+    @Column
     private String username;
     
-    @Column(name = "password")
+    @Column
     private String password;
+    
 }
