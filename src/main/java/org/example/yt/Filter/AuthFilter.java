@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 
 import org.example.yt.service.JwtService;
+import org.example.yt.service.TokenService;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -20,7 +21,7 @@ import java.util.HashSet;
 public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFilter {
     
     
-    private static final String []whitelist_path = {"/auditlistview","/actlistview","/reportlistview","/login"};
+    private static final String []whitelist_path = {"/auditlistview","/actlistview","/reportlistview"};
 
     
     @Override
@@ -56,13 +57,12 @@ public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFil
         responseContext.getHeaders().add("X-Example-Header","Response processed by AuthFilter");
     }
      boolean isValidToken(String token){
-            String []parm = token.split("@");
+         String token_copy = TokenService.decryptToken(token);
+         System.out.println("检查token是否有效");
+            String []parm = token_copy.split("@");
             String userId = parm[0];
             String userTime = parm[1];  //过期时间
-            
-            if( userId.equals("1") || userId.equals("2")){      //user白名单
-                return true;
-            }
+         
              // 定义日期时间格式化器
              DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
              
@@ -71,8 +71,10 @@ public class AuthFilter  implements ContainerRequestFilter, ContainerResponseFil
              //当前时间
              LocalDateTime localDateTime = LocalDateTime.now();
                 if (localDateTime.isBefore(expiryTime)){    //没有过期
+                    System.out.println("没有过期");
                     return true;
                 }
+                System.out.println("过期了");
                 return false;
             }
         

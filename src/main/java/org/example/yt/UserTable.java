@@ -1,15 +1,21 @@
 package org.example.yt;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.example.yt.service.TokenService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @ApplicationScoped
 public class UserTable {
+    
+    @Inject
+    TokenService tokenService;
     
     // 模拟数据存储
     private List<IUser> userTable = new ArrayList<>();
@@ -18,8 +24,8 @@ public class UserTable {
     
     public UserTable() {
         // 初始化的两个用户和当前索引
-        userTable.add(new IUser(1, "zzh", "123456", "admin"));
-        userTable.add(new IUser(2, "ddd", "666666", "user"));
+        userTable.add(new IUser(1, "admin", "123456", "admin"));
+        userTable.add(new IUser(2, "abc", "666666", "user"));
         index = userTable.size();
     }
     
@@ -31,7 +37,8 @@ public class UserTable {
     public synchronized void addUser(IUser user) {
         index++;
         user.setId(index);
-        userTable.add(user);
+        IUser user_copy= TokenService.encryptUser(user);
+        userTable.add(user_copy);
     }
     
     /**
@@ -51,11 +58,13 @@ public class UserTable {
     public synchronized void updateUser(IUser user) {
         for (IUser source : userTable) {
             if (source.getId().equals(user.getId())) {
+                IUser user_copy = TokenService.encryptUser(user);
                 if (user.getUsername() != null) {
-                    source.setUsername(user.getUsername());
+                    
+                    source.setUsername(user_copy.getUsername());
                 }
                 if (user.getPassword() != null) {
-                    source.setPassword(user.getPassword());
+                    source.setPassword(user_copy.getPassword());
                 }
                 if (user.getRole() != null) {
                     source.setRole(user.getRole());
@@ -104,6 +113,8 @@ public class UserTable {
     public void setIndex(int index) {
         this.index = index;
     }
+    
+    
     
     public static void main(String[] args) {
         UserTable cache = new UserTable();
