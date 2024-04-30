@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.yt.service.TokenService.encryptPawd;
+
 
 @ApplicationScoped
 public class UserTable {
@@ -24,7 +26,7 @@ public class UserTable {
     
     public UserTable() {
         // 初始化的两个用户和当前索引
-        userTable.add(new IUser(1, "admin", "123456", "admin"));
+        userTable.add(new IUser(1, "admin", "admin", "admin"));
         userTable.add(new IUser(2, "abc", "666666", "user"));
         index = userTable.size();
     }
@@ -37,8 +39,9 @@ public class UserTable {
     public synchronized void addUser(IUser user) {
         index++;
         user.setId(index);
-        IUser user_copy= TokenService.encryptUser(user);
-        userTable.add(user_copy);
+        user.setPassword(encryptPawd(user.getPassword()));
+        
+        userTable.add(user);
     }
     
     /**
@@ -58,13 +61,13 @@ public class UserTable {
     public synchronized void updateUser(IUser user) {
         for (IUser source : userTable) {
             if (source.getId().equals(user.getId())) {
-                IUser user_copy = TokenService.encryptUser(user);
+                user.setPassword(TokenService.encryptPawd(user.password));
                 if (user.getUsername() != null) {
-                    
-                    source.setUsername(user_copy.getUsername());
+                    source.setUsername(user.getUsername());
                 }
                 if (user.getPassword() != null) {
-                    source.setPassword(user_copy.getPassword());
+                    source.setPassword(encryptPawd(user.getPassword()));
+                    // source.setPassword(user_copy.getPassword());
                 }
                 if (user.getRole() != null) {
                     source.setRole(user.getRole());

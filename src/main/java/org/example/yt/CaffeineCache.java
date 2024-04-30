@@ -1,31 +1,25 @@
 package org.example.yt;
 
-import io.quarkus.cache.CacheResult;
-import jakarta.enterprise.context.ApplicationScoped;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 
-import java.util.HashMap;
-import java.util.Map;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Singleton;
+
+import org.example.yt.dto.Security;
+
+
+import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
 public class CaffeineCache {
     
-    //模拟数据存储
-    private Map<String,String> database = new HashMap<>();
-    
-    
-    public CaffeineCache(){
-        database.put("key1","value1");
-        database.put("key2","value2");
-        
+    @Singleton
+    public Cache<String, Security> securityCache() {
+        return Caffeine.newBuilder()
+                .maximumSize(10_000)
+                .expireAfterWrite(2, TimeUnit.HOURS)
+                .build();
     }
     
-    @CacheResult(cacheName = "my-cache")
-    public String getCacheData(String key){
-        
-        return database.get(key);
-    }
-    
-    public void updateData(String key,String value){
-        database.put(key,value);
-    }
 }

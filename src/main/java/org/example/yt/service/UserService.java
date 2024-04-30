@@ -2,9 +2,8 @@ package org.example.yt.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Path;
+
 import org.example.yt.UserTable;
-import org.example.yt.entity.LoginRequest;
 
 
 @ApplicationScoped
@@ -22,12 +21,13 @@ public class UserService {
     }
     
     //根据用户信息是否匹配决定返回用户id 还是-1；
-    public Integer authenticate(String username,String password){
+    public UserTable.IUser authenticate(String username,String password){
         UserTable.IUser user = getByName(username);
+//        password = endecoder(password);
         if(user != null && user.getPassword().equals(password)){
-            return user.getId();
+            return user;
         }else{
-            return -1;
+            return null;
         }
     }
 
