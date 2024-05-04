@@ -1,7 +1,7 @@
 package com.example.myproject.resource;
 
-import com.example.myproject.entity.CheckList;
-import com.example.myproject.entity.UploadFile;
+import com.example.myproject.entity.FileList;
+import com.example.myproject.entity.ReportList;
 import com.example.myproject.response.ResponseResult;
 import com.example.myproject.service.UploadFileService;
 import jakarta.inject.Inject;
@@ -48,25 +48,9 @@ public class FileResource {
     }
     
     /**
-     * @param fileName
+     *
+     * @param id
      * @return
-     
-    @GET
-    @Path("/download")
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
-//    @Consumes(MediaType.APPLICATION_OCTET_STREAM)
-    public  Response download(@QueryParam("fileName") String fileName ){
-
-        File file = uploadFileService.downloadByName(fileName);
-
-        String encodFileName = URLEncoder.encode(fileName, StandardCharsets.UTF_8);
-
-        return Response.ok(file)
-                .header("content-disposition", "attachment; filename=\"" + encodFileName + "\"")
-                .header("Content-Length", file.length())
-                .build();
-
-    }
      */
  
     @GET
@@ -74,9 +58,9 @@ public class FileResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response download(@QueryParam("id") Long id){
         
-        UploadFile uploadFile = uploadFileService.getById(id);
-        String fileName = uploadFile.getOriginName();
-        String filePath = uploadFile.getFilePath();
+        FileList fileList = uploadFileService.getById(id);
+        String fileName = fileList.getOriginName();
+        String filePath = fileList.getFilePath();
         String path = filePath+"\\"+fileName;
         path = path.replace("\\", File.separator);
         System.out.println("path:"+path);
@@ -93,8 +77,8 @@ public class FileResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     
-    public ResponseResult<UploadFile> getById(@PathParam("id") Long id){
-        UploadFile result =  uploadFileService.getById(id);
+    public ResponseResult<FileList> getById(@PathParam("id") Long id){
+        FileList result =  uploadFileService.getById(id);
         return  ResponseResult.success(result);
     }
     

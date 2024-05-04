@@ -10,7 +10,7 @@ public class FishApplication implements QuarkusApplication {
     
     @Override
     public int run(String... args) {
-        System.out.println("======== quarkus is running! ========");
+        System.out.println("======== quarkus 正在运行! ========");
         Quarkus.waitForExit();
         return 0;
     }

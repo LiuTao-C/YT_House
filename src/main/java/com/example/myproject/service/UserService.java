@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import static com.example.myproject.service.EncryptService.encryptPawd;
+
 /**
  * 这里是做业务层
  * 多表查询的时候可以在这里处理业务逻辑
@@ -23,6 +25,7 @@ public class UserService {
     
     /**
      * 查詢全部
+     *
      * @return
      */
     public Page<User> selectList(int page, int size) {
@@ -32,6 +35,7 @@ public class UserService {
     
     /**
      * 根据ID删除数据
+     *
      * @param id id
      */
     public void deleteById(Long id) {
@@ -40,6 +44,7 @@ public class UserService {
     
     /**
      * 根据ID更新数据
+     *
      * @param user
      * @return
      */
@@ -49,17 +54,33 @@ public class UserService {
     
     /**
      * 保存数据
+     *
      * @param user
      * @return
      */
     public User save(User user) {
         return userMapper.save(user);
     }
+    
     //单个id查询
-    public User getById(Long id){  return userMapper.getOne(id);}
+    public User getById(Long id) {
+        return userMapper.getOne(id);
+    }
     
     public User add(User user) {
         return userMapper.saveAndFlush(user);
     }
     
+    
+    //登录模块
+    public User authenticate(String username, String password) {
+        User user = userMapper.findByName(username);
+        if(user!=null){
+            password = encryptPawd(password);
+            if(user.getPassword().equals(password)){ return user;}
+        }else{
+            return null;
+        }
+        return null;
+    }
 }

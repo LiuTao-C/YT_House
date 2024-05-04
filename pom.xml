@@ -82,7 +82,11 @@
         </dependency>
         <!--新的-->
 
-
+        <!-- 缓存-->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-cache</artifactId>
+        </dependency>
 
 
     </dependencies>

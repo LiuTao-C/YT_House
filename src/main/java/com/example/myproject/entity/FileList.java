@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "reportfile")
-public class UploadFile {
+public class FileList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,5 +27,11 @@ public class UploadFile {
     
     @Column(name = "origin_name")
     private String originName;
+    
+//    @Column(name = "update_time")
+//    private String updateTime;
+//
+//    @Column(name = "document_type")
+//    private  String documentType;
 
 }

@@ -14,6 +14,9 @@ public class ReportList implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(name = "file_id")
+    private String fileId;
+    
     @Column
     private String type;
     
@@ -69,5 +72,6 @@ public class ReportList implements Serializable {
     
     @Column(name = "need_expert_research")
     private  String needExpertResearch;
+    
     
 }
